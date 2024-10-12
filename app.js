@@ -1,12 +1,3 @@
-var dogAge = document.getElementById("dog-age");
-var dogHappiness = document.getElementById("dog-happiness");
-var dogHunger = document.getElementById("dog-hunger");
-
-var dogAging = document.getElementById("dog-aging");
-var dogFeed = document.getElementById("dog-feed");
-var dogPlay = document.getElementById("dog-play");
-var dogGetInfo = document.getElementById("dog-get-info");
-
 var myPet = {
   name: "Jrlandoo",
   type: "dog",
@@ -16,13 +7,13 @@ var myPet = {
   feed: function () {
     if (this.hunger > 0) {
       this.hunger -= 20;
-      dogHunger.textContent = `Hunger: ${this.hunger}%`;
+      alert(`You fed ${this.name}! Hunger decreased by 20.`);
     }
   },
   play: function () {
     if (this.happiness < 100) {
       this.happiness += 20;
-      dogHappiness.textContent = `Happiness: ${this.happiness}%`;
+      alert(`You played with ${this.name}! Happiness increased by 20.`);
     }
   },
   agePet: function () {
@@ -30,12 +21,11 @@ var myPet = {
     dogAge.textContent = `Age: ${this.age}`;
     if (this.happiness < 100) {
       this.happiness += 5;
-      dogHappiness.textContent = `Happiness: ${this.happiness}%`;
     }
     if (this.hunger > 0) {
         this.hunger -= 10;
-        dogHunger.textContent = `Hunger: ${this.hunger}%`;
       }
+      alert(`${this.name} is now ${this.age} years old! and happiness increased by 5 and hunger decreased by 10.`);
   },
   getInfo: function () {
     return `I am a ${this.type} named ${this.name} and I am ${
@@ -46,18 +36,18 @@ var myPet = {
   },
 };
 
-dogAging.addEventListener("click", function () {
-  myPet.agePet();
-});
+var takePrompt = prompt("What would you like to do with your pet? (name, type, feed, play, age, or get-info?)");
 
-dogFeed.addEventListener("click", function () {
+if (takePrompt === "name") {
+  alert(`Pet name is ${myPet.name}`);
+} else if (takePrompt === "type") {
+  alert(myPet.type);
+} else if (takePrompt === "feed") {
   myPet.feed();
-});
-
-dogPlay.addEventListener("click", function () {
+} else if (takePrompt === "play") {
   myPet.play();
-});
-
-dogGetInfo.addEventListener("click", function () {
+} else if (takePrompt === "age") {
+  myPet.agePet();
+} else if (takePrompt === "get-info") {
   alert(myPet.getInfo());
-});
+}
