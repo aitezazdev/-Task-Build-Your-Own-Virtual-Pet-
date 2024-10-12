@@ -36,7 +36,7 @@ var myPet = {
   },
 };
 
-var takePrompt = prompt("What would you like to do with your pet? (name, type, feed, play, age, or get-info?)");
+var takePrompt = prompt("What would you like to do with your pet? (name, type, age, feed, (or), play, agePet , or get-info?)");
 
 if (takePrompt === "name") {
   alert(`Pet name is ${myPet.name}`);
@@ -48,7 +48,10 @@ if (takePrompt === "name") {
   myPet.play();
 } else if (takePrompt === "age") {
   myPet.agePet();
-} else if (takePrompt === "get-info") {
+} else if (takePrompt === "agePet") {
+  myPet.agePet();
+}
+else if (takePrompt === "get-info") {
   alert(myPet.getInfo());
 } else {
   alert("I don't recognize that command. Please try again.");
