@@ -50,4 +50,6 @@ if (takePrompt === "name") {
   myPet.agePet();
 } else if (takePrompt === "get-info") {
   alert(myPet.getInfo());
+} else {
+  alert("I don't recognize that command. Please try again.");
 }
